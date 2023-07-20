@@ -42,5 +42,6 @@ impl Register for Ctrl10C {}
 
 impl Ctrl10C {
     pub fn new(value: u8, address: u8) -> Self {
-        Ctrl2G { address, value }
+        Ctrl10C { address, value }
     }
+}
