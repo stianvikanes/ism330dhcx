@@ -70,7 +70,7 @@ use ctrl7g::Ctrl7G;
 use ctrl9xl::Ctrl9Xl;
 use ctrl10c::Ctrl10C;
 use fifoctrl::FifoCtrl;
-use internal_freq_fine::req_fine;
+use internal_freq_fine::freq_fine;
 use fifostatus::FifoStatus;
 
 
