@@ -59,7 +59,7 @@ pub mod ctrl9xl;
 pub mod ctrl10c;
 pub mod fifo;
 pub mod fifoctrl;
-pub mod internal_freq_fine;
+pub mod freqfine;
 pub mod fifostatus;
 
 
