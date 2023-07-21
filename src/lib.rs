@@ -70,7 +70,7 @@ use ctrl7g::Ctrl7G;
 use ctrl9xl::Ctrl9Xl;
 use ctrl10c::Ctrl10C;
 use fifoctrl::FifoCtrl;
-use internal_freq_fine::freq_fine;
+use freqfine::FreqFine;
 use fifostatus::FifoStatus;
 
 
@@ -113,7 +113,7 @@ pub struct Ism330Dhcx {
     pub ctrl9xl: Ctrl9Xl,
     pub ctrl10c: Ctrl10C,
     pub fifoctrl: FifoCtrl,
-    pub internal_freq_fine: freq_fine,
+    pub freqfine: FreqFine,
     pub fifostatus: FifoStatus,
 }
 
@@ -139,7 +139,7 @@ impl Ism330Dhcx {
         let ctrl9xl = Ctrl9Xl::new(registers[8], address);
         let ctrl10c = Ctrl10C::new(registers[9], address);
         let fifoctrl = FifoCtrl::new(registers[10..14].try_into().unwrap(), address);
-        let internal_freq_fine = freq_fine::new(registers[14], address);
+        let freqfine = FreqFine::new(registers[14], address);
         let fifostatus = FifoStatus::new(address);
 
         let ism330dhcx = Ism330Dhcx {
@@ -151,7 +151,7 @@ impl Ism330Dhcx {
             ctrl9xl,
             ctrl10c,
             fifoctrl,
-            internal_freq_fine,
+            freqfine,
             fifostatus,
         };
 
@@ -166,7 +166,7 @@ impl Ism330Dhcx {
         self.ctrl9xl.address = address;
         self.ctrl10c.address = address;
         self.fifoctrl.address = address;
-        self.internal_freq_fine.address = address;
+        self.freqfine.address = address;
         self.fifostatus.address = address;
     }
 
