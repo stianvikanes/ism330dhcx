@@ -129,7 +129,7 @@ impl Ism330Dhcx {
     where
         I2C: WriteRead<Error = E> + Write<Error = E>,
     {
-        let mut registers = [0u8; 14];
+        let mut registers = [0u8; 15];
         i2c.write_read(address, &[0x10], &mut registers)?;
 
         let ctrl1xl = Ctrl1Xl::new(registers[0], address);
