@@ -11,32 +11,20 @@ pub struct freq_fine {
 }
 
 impl fmt::Display for freq_fine {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        for r in self.value.iter() {
-            write!(f, "{}", r)?;
-        }
-
-        Ok(())
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.value)
     }
 }
 
 impl fmt::Binary for freq_fine {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        for r in self.value.iter() {
-            write!(f, "{:b}", r)?;
-        }
-
-        Ok(())
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{:b}", self.value)
     }
 }
 
 impl fmt::LowerHex for freq_fine {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        for r in self.value.iter() {
-            fmt::LowerHex::fmt(&r, f)?;
-        }
-
-        Ok(())
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::LowerHex::fmt(&self.value, f)
     }
 }
 
