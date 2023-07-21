@@ -41,7 +41,7 @@ impl FreqFine {
     }
 
 
-    pub fn read_freq<I2C>(&mut self, i2c: &mut I2C) -> Result<(), I2C::Error>
+    pub fn read_freq<I2C>(&mut self, i2c: &mut I2C) -> Result<f32, I2C::Error>
     where
         I2C: Write,
     {
