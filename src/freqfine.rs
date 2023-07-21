@@ -47,6 +47,6 @@ impl FreqFine {
     {
         self.value = u8::MAX;
         let actual: u8 = self.read(i2c, self.address, ADDR)?;
-        ok(actual)
+        Ok(actual)
     }
 }
