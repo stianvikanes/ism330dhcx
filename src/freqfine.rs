@@ -45,8 +45,7 @@ impl FreqFine {
     where
         I2C: Write,
     {
-        const RESET: u8 = 0b00000000;
-        self.value &= !RESET;
-        self.write(i2c, self.address, ADDR, self.value)
+        self.value = u8::MAX;
+        self.read(i2c, self.address, ADDR);
     }
 }
