@@ -1,5 +1,5 @@
 use core::fmt;
-use embedded_hal::blocking::i2c::Write;
+use embedded_hal::blocking::i2c::{Write, WriteRead};
 
 use crate::Register;
 
