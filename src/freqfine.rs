@@ -43,7 +43,7 @@ impl FreqFine {
 
     pub fn read_freq<I2C>(&mut self, i2c: &mut I2C) -> Result<u8, I2C::Error>
     where
-        I2C: Write,
+        I2C: WriteRead,
     {
         self.value = u8::MAX;
         let actual: u8 = self.read(i2c, self.address, ADDR)?;
