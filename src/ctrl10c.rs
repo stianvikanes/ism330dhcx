@@ -44,4 +44,14 @@ impl Ctrl10C {
     pub fn new(value: u8, address: u8) -> Self {
         Ctrl10C { address, value }
     }
+
+    pub fn enable_timestamp<I2C>(&mut self, i2c: &mut I2C, value: bool) -> Result<(), I2C::Error>
+    where
+        I2C: Write,
+    {
+        self.value &= !(1 << TIMESTAMP_EN);
+        self.value |= (value as u8) << TIMESTAMP_EN;
+        self.write(i2c, self.address, ADDR, self.value)
+    }
+
 }
