@@ -48,6 +48,10 @@ impl FreqFine {
         const RESET: u8 = 0b00000000;
         self.value &= !RESET;
         let actual: u8 = self.read(i2c, self.address, ADDR)?;
-        Ok(self.value)
+        
+        const ODR_COEFF: u16 = 64
+        let ODR_actual: f32 = 6667 + (0.0015 * self.value * 6667 / ODR_COEFF)
+        
+        Ok(ODR_actual)
     }
 }
