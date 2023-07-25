@@ -46,8 +46,7 @@ impl FreqFine {
         I2C: WriteRead,
     {
         self.value &= !(u8::MAX);
-        let actual: u8 = i2c.write_read(ADDR, self.address, self.value)?;
-        //let actual: u8 = self.read(i2c, self.address, ADDR)?;
+        let actual: u8 = self.read(i2c, self.address, ADDR)?;
         Ok(self.value)
     }
 }
