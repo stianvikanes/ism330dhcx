@@ -139,7 +139,7 @@ impl Ism330Dhcx {
         let ctrl9xl = Ctrl9Xl::new(registers[8], address);
         let ctrl10c = Ctrl10C::new(registers[9], address);
         let fifoctrl = FifoCtrl::new(registers[10..14].try_into().unwrap(), address);
-        let freqfine = FreqFine::new(registers[14], address);
+        let freqfine = FreqFine::new(registers[15], address);
         let fifostatus = FifoStatus::new(address);
 
         let ism330dhcx = Ism330Dhcx {
