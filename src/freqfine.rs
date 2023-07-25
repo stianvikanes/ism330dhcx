@@ -46,7 +46,7 @@ impl FreqFine {
         I2C: WriteRead,
     {
         const RESET: u8 = 0b11111111;
-        self.value |= RESET;
+        self.value &= !RESET;
         let actual: u8 = self.read(i2c, self.address, ADDR)?;
         Ok(self.value)
     }
