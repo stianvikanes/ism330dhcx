@@ -52,6 +52,6 @@ impl FreqFine {
         const ODR_COEFF: f32 = 64.0;
         let ODR_actual: f32 = 6667.0 + (0.0015 * (self.value as f32) * 6667.0 / ODR_COEFF);
         
-        Ok(ODR_actual)
+        ODR_actual
     }
 }
