@@ -137,9 +137,9 @@ impl Ism330Dhcx {
         let ctrl3c = Ctrl3C::new(registers[2], address);
         let ctrl7g = Ctrl7G::new(registers[6], address);
         let ctrl9xl = Ctrl9Xl::new(registers[8], address);
-        let ctrl10c = Ctrl10C::new(registers[9], address);
+        let freqfine = FreqFine::new(registers[9], address);
         let fifoctrl = FifoCtrl::new(registers[10..14].try_into().unwrap(), address);
-        let freqfine = FreqFine::new(registers[15], address);
+        let ctrl10c = Ctrl10C::new(registers[15], address);
         let fifostatus = FifoStatus::new(address);
 
         let ism330dhcx = Ism330Dhcx {
@@ -149,9 +149,9 @@ impl Ism330Dhcx {
             ctrl3c,
             ctrl7g,
             ctrl9xl,
-            ctrl10c,
-            fifoctrl,
             freqfine,
+            fifoctrl,
+            ctrl10c,
             fifostatus,
         };
 
@@ -164,9 +164,9 @@ impl Ism330Dhcx {
         self.ctrl3c.address = address;
         self.ctrl7g.address = address;
         self.ctrl9xl.address = address;
-        self.ctrl10c.address = address;
-        self.fifoctrl.address = address;
         self.freqfine.address = address;
+        self.fifoctrl.address = address;
+        self.ctrl10c.address = address;
         self.fifostatus.address = address;
     }
 
